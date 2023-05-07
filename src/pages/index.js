@@ -21,7 +21,7 @@ export default function Home() {
   return (
     <>
       <h1>I-CRM</h1>
-      <button onClick={testApi}>Click</button>
+      <button onClick={testApi}>Click and check connect DB</button>
     </>
   )
 }
