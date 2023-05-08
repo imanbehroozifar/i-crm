@@ -1,27 +1,26 @@
+import HomePage from "@/Components/template/HomePage";
+import Customer from "../../models/Customer";
+import connectDB from "../../utils/connectDB"
 
-export default function Home() {
-  const testApi = () => {
-    fetch('/api/customer',
-      {
-        method: "POST",
-        body: JSON.stringify({
-          data: {
-            name: "iman",
-            lastName: "behroozi",
-            email: "iman@gmail.com"
-          }
-        }),
-        headers: { "Content-Type": "application/json" }
-
-      }
-    )
-      .then(res => res.json())
-      .then(data => console.log(data))
-  }
+export default function Home({ customer }) {
   return (
     <>
-      <h1>I-CRM</h1>
-      <button onClick={testApi}>Click and check connect DB</button>
+      <HomePage customer={customer } />
     </>
   )
+}
+export  async function getServerSideProps() {
+  try {
+    await connectDB();
+    const customer = await Customer.find()
+    return {
+      props: {
+        customer:JSON.parse(JSON.stringify(customer))
+      }
+    }
+  } catch (error) {
+    return {
+      notFound: true,
+    }
+  }  
 }
