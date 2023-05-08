@@ -21,7 +21,7 @@ const customerSchema = new Schema({
     address: String,
     postalCode: Number,
     date: Date,//تاریخ عضویت مشتری یا اولین خرید
-    product: {
+    products: {
         type: Array,
         default:[],
     },

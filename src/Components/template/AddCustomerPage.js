@@ -11,11 +11,12 @@ const AddCustomerPage = () => {
     address: "",
     postalCode: "",
     date: "",
-    product: []
+    products: []
 
   })
   const router = useRouter()
   const saveHandler = async () => {
+    console.log(form)
     const res = await fetch('/api/customer',
       {
         method: "POST",
@@ -39,7 +40,7 @@ const AddCustomerPage = () => {
       address: "",
       postalCode: "",
       date: "",
-      product: []
+      products: []
     })
     router.push('/')
   }
