@@ -5,7 +5,7 @@ const Layout = ({ children }) => {
         <>
             <header className="header">
                 <h2>I-CRM</h2>
-                <Link href='add-customer'>
+                <Link href='/add-customer'>
                     Add-Customer
                 </Link>
             </header>

@@ -1,9 +1,10 @@
 import React, { useReducer, useState } from 'react'
 import Form from '../module/Form'
 import { useRouter } from 'next/router'
+import moment from 'moment'
 
 const CustomerEditPage = ({ data, id }) => {
-  console.log(data)
+  const zeynab = data.date ? moment(data.date).utc().format("YYYY-MM-DD") : ""
   const [form, setForm] = useState({
     lastName: data.lastName,
     email: data.email,
@@ -12,7 +13,7 @@ const CustomerEditPage = ({ data, id }) => {
     address: data.address || "",
     postalCode: data.postalCode || "",
     products: data.products || "",
-    date: data.date || "",
+    date: zeynab
 
 
   })
